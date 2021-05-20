@@ -7,15 +7,15 @@ default: &default
 
 development:
   <<: *default
-  database: develop_medical_center
+  database: develop_medical
 
 test:
   <<: *default
-  database: test_medical_center
+  database: test_medical
 
 production:
   adapter: postgresql
-  database: production_medical_center
+  database: production_medical
   pool: 10
   timeout: 5000
   user: <%= Rails.application.credentials.db_user %>
