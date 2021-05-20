@@ -1,25 +1,22 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 } %>
+  user: <%= ENV.fetch("PG_USER") %>
+  password: <%= ENV.fetch("PG_PASSWORD") %>
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: develop_medical_center
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: test_medical_center
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: production_medical_center
+  pool: 10
+  timeout: 5000
+  user: <%= Rails.application.credentials.db_user %>
+  password: <%= Rails.application.credentials.db_password %>
