@@ -15,9 +15,16 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
+gem 'pry'
+gem "omniauth", "~> 1.9.1"
+gem 'omniauth-google-oauth2', ">= 0.8.0"
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'omniauth-oauth2', '~> 1.6.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  end
 end
 
 group :development do
@@ -31,6 +38,7 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'factory_bot_rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
