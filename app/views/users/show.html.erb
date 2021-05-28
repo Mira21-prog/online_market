@@ -1,0 +1,7 @@
+<div class="text-center">
+  <%= @user.full_name %>
+  <p>Phone number: <%= @user.phone_number%></p>
+  <p>Email: <%= @user.email %></p>
+
+  <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-warning" %>
+</div>

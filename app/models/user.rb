@@ -6,6 +6,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :phone_number, presence: true
 
   def buyer?
-    type == 'Seller'
+    type == 'Buyer'
   end
 end
