@@ -3,5 +3,7 @@
   <p>Phone number: <%= @user.phone_number%></p>
   <p>Email: <%= @user.email %></p>
 
+<% if policy(current_user).edit? %>
   <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-warning" %>
+<% end %>
 </div>

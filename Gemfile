@@ -21,6 +21,7 @@ gem 'omniauth-google-oauth2', ">= 0.8.0"
 gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'omniauth-oauth2', '~> 1.6.0'
 gem 'draper'
+gem "pundit"
 
 group :development, :test do
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
