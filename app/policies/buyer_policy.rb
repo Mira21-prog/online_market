@@ -4,6 +4,6 @@ class BuyerPolicy < ApplicationPolicy
   end
 
   def show?
-    user.buyer?
+    user.buyer? && user == record
   end
 end
