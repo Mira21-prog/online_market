@@ -1,0 +1,6 @@
+<% @categories.each do |element|%>
+  <%= link_to element.name, '#', class: 'btn btn-info', type: 'button'%>
+    <% element.subcategories.each do |sub|%>
+      <%= link_to sub.name , '#', class: 'btn btn-light', type: 'button'%>
+    <% end %>
+<% end %>

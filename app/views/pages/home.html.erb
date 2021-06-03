@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'layouts/category_nav' %>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center"><span class="text-secondary">Explore </span><span class="text-warning">Italy</span></h1>
+    <div class="col-md-3">
+      <strong>Filters</strong>
+    </div>
+    <div class="col-md-9">
+      <%= render 'pages/apartments'%>
+    </div>
+  </div>
+</div>

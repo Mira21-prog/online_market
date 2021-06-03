@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="text-center"><strong><%= @apartment.name %></strong></h3>
+      <p><%= image_tag("red.png", size: "736x300") %></p>
+      <p><strong>About</strong></p>
+      <p><%= @apartment.characteristic.downcase%></p>
+      <p><strong>Contacts</strong></p>
+      <p>Phone number: <%= @apartment.phone_number%></p>
+      <p>Email: <%= @apartment.email%></p>
+      <p>Location: <%= @apartment.address%></p>
+    </div>
+  </div>
+  </div>

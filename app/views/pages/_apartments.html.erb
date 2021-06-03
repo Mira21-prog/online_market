@@ -1,0 +1,16 @@
+<% @apartments.each do |element|%>
+<div class="card mb-3" style="max-width: 840px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag("red.png", size: "256x170") %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= link_to element.name, apartment_path(element.id), class: '' %></strong></h5>
+        <small><i class='fas fa-map-marker-alt icon-size'></i> <%= element.address %></small><br>
+        <a href="#" class="btn btn-primary">See availability</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
