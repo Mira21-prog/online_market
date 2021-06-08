@@ -8,7 +8,7 @@
       <div class="card-body">
         <h5 class="card-title"><strong><%= link_to element.name, apartment_path(element.id), class: '' %></strong></h5>
         <small><i class='fas fa-map-marker-alt icon-size'></i> <%= element.address %></small><br>
-        <a href="#" class="btn btn-primary">See availability</a>
+        <%= link_to "See availability", apartment_path(element.id), class: 'btn btn-primary' %>
       </div>
     </div>
   </div>

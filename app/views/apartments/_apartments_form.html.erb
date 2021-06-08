@@ -1,0 +1,78 @@
+<div class="card text-white bg-info mb-4 position-fixed" style="max-width: 18rem;">
+  <div class="card-header">Available date</div>
+  <div class="card-body">
+    <%= form_with url: "/bookings", method: :post do |form| %>
+      <div class="d-inline-block p-3">
+        <div>
+          <p>Check-in</p>
+            <%= form.text_field :checkin, id: "from", class: "from-available", value: '10/10/2021' %>
+        </div>
+      </div>
+      <div class="d-inline-block p-3">
+        <div>
+          <p>Checkout</p>
+          <%= form.text_field :checkout, id: "to", class: "to-available", value: '10/20/2021' %>
+        </div>
+      </div>
+      <div>
+      <p class="text-center">GUESTS</p>
+       <div class="d-inline p-4">
+         <span class="item-element-adult">Adult</span>
+         <%= form.number_field :adult, class: "from-available", in: 1..10, value: 1 %>
+       </div>
+       <div class="d-inline p-4">
+         <span class="item-element">Children</span>
+         <%= form.number_field :children, class: "from-available", in: 0..10, value: 1 %>
+       </div>
+       <div class="d-inline p-4">
+         <span class="item-element-infant">Infants</span>
+         <%= form.number_field :infans, class: "from-available", in: 0..10, value: 1 %>
+         <%= form.hidden_field :apartment_id, :value => @apartment.id %>
+       </div>
+    </div>
+    <%= form.submit "Reserve", class: "btn btn-danger button-reserve" %>
+    <% end %>
+    <p><u>$13 x 1 night</u></p>
+    <p><u>Service fee</u></p>
+    <p><u>Occupancy taxes and fees</u></p>
+    <p><u>Cleaning fee</u></p>
+
+    <hr>
+    <p class="font-weight-bold">Total</p>
+  </div>
+</div>
+
+
+<script>
+$( function() {
+  var dateFormat = "mm/dd/yy",
+    from = $( "#from" )
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        to.datepicker( "option", "minDate", getDate( this ) );
+      }),
+    to = $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 2
+    })
+    .on( "change", function() {
+      from.datepicker( "option", "maxDate", getDate( this ) );
+    });
+
+  function getDate( element ) {
+    var date;
+    try {
+      date = $.datepicker.parseDate( dateFormat, element.value );
+    } catch( error ) {
+      date = null;
+    }
+
+    return date;
+  }
+} );
+</script>

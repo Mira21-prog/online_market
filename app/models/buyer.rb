@@ -1,2 +1,3 @@
 class Buyer < User
-end 
+  has_many :bookings
+end
