@@ -23,7 +23,6 @@ gem 'omniauth-oauth2', '~> 1.6.0'
 gem 'draper'
 gem "pundit"
 gem 'config'
-gem 'liqpay', github: 'liqpay/sdk-ruby'
 
 group :development, :test do
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|

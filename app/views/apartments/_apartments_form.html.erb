@@ -1,7 +1,7 @@
 <div class="card text-white bg-info mb-4 position-fixed" style="max-width: 18rem;">
   <div class="card-header">Available date</div>
   <div class="card-body">
-    <%= form_with url: "/bookings", method: :post do |form| %>
+    <%= form_with url: bookings_path, method: :post do |form| %>
       <div class="d-inline-block p-3">
         <div>
           <p>Check-in</p>
@@ -30,15 +30,15 @@
          <%= form.hidden_field :apartment_id, :value => @apartment.id %>
        </div>
     </div>
-    <%= form.submit "Reserve", class: "btn btn-danger button-reserve" %>
+    <%= form.submit "Reserve",class: "btn btn-danger button-reserve" %>
     <% end %>
-    <p><u>$13 x 1 night</u></p>
+    <!-- <p><u>$13 x 1 night</u></p>
     <p><u>Service fee</u></p>
     <p><u>Occupancy taxes and fees</u></p>
-    <p><u>Cleaning fee</u></p>
-
+    <p><u>Cleaning fee</u></p> -->
+<!--
     <hr>
-    <p class="font-weight-bold">Total</p>
+    <p class="font-weight-bold">Total</p> -->
   </div>
 </div>
 

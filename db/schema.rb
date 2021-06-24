@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_170014) do
+ActiveRecord::Schema.define(version: 2021_06_24_110327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,14 @@ ActiveRecord::Schema.define(version: 2021_06_07_170014) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "status"
+    t.integer "status"
     t.integer "service_fee"
     t.integer "occupancy_fee"
     t.integer "cleaning_fee"
+    t.bigint "payment_id"
+    t.integer "night"
     t.index ["apartment_id"], name: "index_bookings_on_apartment_id"
+    t.index ["payment_id"], name: "index_bookings_on_payment_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -51,6 +54,16 @@ ActiveRecord::Schema.define(version: 2021_06_07_170014) do
     t.integer "parent_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "card_holder"
+    t.bigint "card_number"
+    t.string "expiration"
+    t.integer "cvv"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,5 +85,6 @@ ActiveRecord::Schema.define(version: 2021_06_07_170014) do
   end
 
   add_foreign_key "bookings", "apartments"
+  add_foreign_key "bookings", "payments"
   add_foreign_key "bookings", "users"
 end

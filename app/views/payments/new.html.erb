@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card text-white bg-dark p-4" style="max-width: 30rem;">
+        <h3>Pay with card</h3>
+          <% if flash[:messages] %>
+            <div class="alert alert-dark">
+            <p class="font-weight-bold">Warning: </p>
+            <% flash[:messages].each do |message| %>
+              <small class=""><%= message%></small> <br>
+            <% end %>
+            </div>
+          <% end %>
+          <%= form_with url: booking_payments_path(@book), method: :post, class: 'form-group' do |form|%>
+            <%= form.label :card_holder%><br>
+            <%= form.text_field :card_holder, class: 'form-control'%><br>
+            <%= form.label :card_number%><br>
+            <%= form.number_field :card_number, class: 'form-control'%><br>
+            <%= form.label :expiration%><br>
+            <%= form.number_field :expiration, class: 'form-control'%><br>
+            <%= form.label :cvv%><br>
+            <%= form.number_field :cvv, class: 'form-control' %><br>
+            <%= form.submit "Request to book", class: "btn btn-danger" %>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card m-3">
+        <div class="card text-white bg-success p-4" style="max-width: 30rem;">
+          <p><u><%= @book.apartment.price %>&#x20b4; x  <%= @book.night %> night</u></p>
+          <p><u>Service fee</u> <%= @book.service_fee %> &#x20b4;</p>
+          <p><u>Occupancy taxes and fees</u> <%= @book.occupancy_fee %> &#x20b4;</p>
+          <p><u>Cleaning fee </u> <%= @book.cleaning_fee %> &#x20b4;</p>
+          <hr>
+          <p class="font-weight-bold">Total: <%= @book.total %> &#x20b4;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>

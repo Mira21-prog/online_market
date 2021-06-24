@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   root "pages#home"
   resources :apartments
-  resources :bookings
+  resources :bookings do
+    resources :payments
+  end 
 end
