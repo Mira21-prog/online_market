@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :find_apartment, only: :create
 
   def index
+    @booking = Booking.all.where(user_id: current_user)
   end
 
   def create

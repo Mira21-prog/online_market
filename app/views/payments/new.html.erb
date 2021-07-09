@@ -13,13 +13,13 @@
           <% end %>
           <%= form_with url: booking_payments_path(@book), method: :post, class: 'form-group' do |form|%>
             <%= form.label :card_holder%><br>
-            <%= form.text_field :card_holder, class: 'form-control'%><br>
+            <%= form.text_field :card_holder, class: 'form-control', value: "Test"%><br>
             <%= form.label :card_number%><br>
-            <%= form.number_field :card_number, class: 'form-control'%><br>
+            <%= form.number_field :card_number, class: 'form-control', value: "4242424242424242"%><br>
             <%= form.label :expiration%><br>
-            <%= form.number_field :expiration, class: 'form-control'%><br>
+            <%= form.date_field :expiration, class: 'form-control datapi'%><br>
             <%= form.label :cvv%><br>
-            <%= form.number_field :cvv, class: 'form-control' %><br>
+            <%= form.number_field :cvv, class: 'form-control', value: "123" %><br>
             <%= form.submit "Request to book", class: "btn btn-danger" %>
           <% end %>
         </div>

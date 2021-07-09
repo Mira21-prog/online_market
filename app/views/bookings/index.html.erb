@@ -1,4 +1,29 @@
 <div class="container">
   <h1>Your booking</h1>
   <hr>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Hotel</th>
+      <th scope="col">Total price</th>
+      <th scope="col">Total nights</th>
+      <th scope="col">Status</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @booking.each do |element|%>
+    <tr>
+       <td><%= element.apartment.name %></td>
+       <td><%= element.total %></td>
+       <td><%= element.night %></td>
+       <td><%= element.status%></td>
+       <td></td>
+       <td></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 </div>

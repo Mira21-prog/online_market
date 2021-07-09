@@ -17,7 +17,9 @@
       </div>
         <div class="p-2">
           <% if policy(current_user).show? %>
-            <%= link_to "Trips", bookings_path, class: "btn btn-info" %>
+            <% if @booking %>
+              <%= link_to "Trips", bookings_path, class: "btn btn-info" %>
+            <% end %>
             <%= link_to "Profile", users_show_path, class: "btn btn-warning" %>
           <% end %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>

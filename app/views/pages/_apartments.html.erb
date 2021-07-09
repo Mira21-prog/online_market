@@ -6,9 +6,13 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title"><strong><%= link_to element.name, apartment_path(element.id), class: '' %></strong></h5>
+        <% if policy(element).show? %>
+          <h5 class="card-title"><strong><%= link_to element.name, apartment_path(element.id), class: '' %></strong></h5>
+        <% end %>
         <small><i class='fas fa-map-marker-alt icon-size'></i> <%= element.address %></small><br>
-        <%= link_to "See availability", apartment_path(element.id), class: 'btn btn-primary' %>
+        <% if policy(element).show? %>
+         <%= link_to "See availability", apartment_path(element.id), class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
   </div>

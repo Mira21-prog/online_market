@@ -1,5 +1,11 @@
 require 'rails_helper'
+include AuthHelper
 
 RSpec.describe Apartment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "check valid element" do
+    let(:apartment) { FactoryBot.create(:apartment) }
+  end
+
+
 end
