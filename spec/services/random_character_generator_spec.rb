@@ -4,15 +4,21 @@ RSpec.describe RandomCharacterGenerator do
 
     describe "#new_character" do
         # NOTE: Do NOT create your test variables this way!! (See comments for why.) This is just an example for readability...
-        let(:starting_datebase_count) { Character.count } 
+        let(:starting_datebase_count) { Character.count }
         let(:player) { Player.create(user_name: "Ronald McDonald", display_name: "Mac") }
-        let(:character) {
-              rcg.new_character("Ronnie the Rat", player)
-              rcg = RandomCharacterGenerator.new
-            }
+        let(:character) { rcg = RandomCharacterGenerator.new  rcg.new_character("Ronnie the Rat", player)}
+        let(:dublicate) { rcg.new_character("Ronnie the Rat", player) }
 
-        it "creates a new Character instance" do
-          expect(character).to be_an_instance_of Character
+        context "success" do
+          it { expect(character).to be_an_instance_of Character }
+          end
+        end
+
+        context "failure (non-unique) name" do
+          it "returns a messsages that Character is not created" do
+            expect(character).to be_an_instance_of Character
+            expect(duplicate).to eq "Character not created -- name already exists!"
+          end
         end
 
         it "randomly allocates all #{rcg.points_pool} stat points between #{rcg.stats_array.to_s}" do
