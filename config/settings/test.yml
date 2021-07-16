@@ -1,0 +1,7 @@
+procent:
+  children: 0.5
+  infans: 0.3
+fee:
+  service: 0.1
+  cleaning: 0.2
+  occupancy: 0.3

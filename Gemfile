@@ -24,6 +24,7 @@ gem 'draper'
 gem "pundit"
 gem 'config'
 gem 'rails-controller-testing'
+gem "active_attr"
 
 group :development, :test do
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
