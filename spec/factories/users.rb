@@ -24,22 +24,15 @@ FactoryBot.define do
     cleaning_fee { 200 }
     payment_id { nil}
     night { 10 }
-    trait :invalid do
-      checkin nil
-      checkout nil
-      adult nil
-      children nil
-      infans nil
-      total nil
-      association nil
-      association nil
-      status nil
-      service_fee nil
-      occupancy_fee nil
-      cleaning_fee nil
-      payment_id nil
-      night nil
-    end
+  end
+
+  factory :payment do
+    card_holder { "Mira Mt" }
+    card_number { 4242424242424242 }
+    expiration { "2021-07-12" }
+    cvv {123}
+    association :booking_id, factory: :booking
+
   end
 
   factory :apartment do
